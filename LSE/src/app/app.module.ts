@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { GaleriaComponent } from './galeria/galeria.component';
 import { VideoComponent } from './video/video.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { YoutubePlayerModule } from 'ngx-youtube-player';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/galeria', pathMatch: 'full'},
@@ -23,7 +24,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    YoutubePlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,9 +7,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoComponent implements OnInit {
 
+/*   id = 'qDuKsiwS5xw'; */
+  id = 'MF-7IQOi_LA';
+  playerHeight = '390';
+  playerWidth = '640';
+  private player;
+  private ytEvent;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  onStateChange(event) {
+    this.ytEvent = event.data;
+  }
+  savePlayer(player) {
+    this.player = player;
+  }
+  
+  playVideo() {
+    this.player.playVideo();
+  }
+  
+  pauseVideo() {
+    this.player.pauseVideo();
+  }
+
+ 
+
 
 }

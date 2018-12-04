@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+//import * as TinCanJS from 'TinCanJS';
+//import * as Cryptojs from 'Cryptojs';
 
 @Component({
   selector: 'app-video',
@@ -42,10 +44,12 @@ export class VideoComponent implements OnInit {
     //player loaded
     //do some stuff here if you want!
   }
+
+  /*
    onPlayerStateChange(newState) {
     switch (newState) {
     	case (YT.PlayerState.PLAYING):
-        this.player.videoStarted();
+        this.videoStarted();
         break;
     	case (YT.PlayerState.PAUSED):
         if (this.player.lastPlayerState == YT.PlayerState.PLAYING) {
@@ -64,7 +68,7 @@ export class VideoComponent implements OnInit {
     this.player.lastPlayerTime = this.player.getCurrentTime();
     this.player.lastPlayerState = newState;
   }
-  /*
+  
    videoWatched(start, finish) {//start and finish in seconds
     window.tincan.sendStatement({
         actor: Cards.getActor(),
@@ -85,8 +89,26 @@ export class VideoComponent implements OnInit {
     }); 
   }
 
-*/
 
+
+videoStarted(){
+  sendstatement ('played',false,false);
+}
+
+videoPaused(){
+  sendstatement ('paused',false,false);
+}
+videoEnded(){
+  sendstatement ('terminated',false,false);
+}
+
+videoWatched(start, finish) {//start and finish in seconds
+  sendstatement ('watched',seconds2time(parseInt(start)),seconds2time(parseInt(finish)));
+}
+videoSkipped(start, finish) {//start and finish in seconds
+  sendstatement (“skipped”,seconds2time(start),seconds2time(finish));
+}
+*/
 
 
 
